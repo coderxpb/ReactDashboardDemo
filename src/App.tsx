@@ -8,6 +8,8 @@ import { WeeklyReportsLayout } from "./components/WeeklyReports.Layout";
 import { OtherFunctionsCard } from "./components/OtherFunctions.Card";
 import { EqualizerRounded } from "@mui/icons-material";
 import {OtherFunctionsLayout} from "./components/OtherFunctions.Layout";
+import {UpdatingMonitoringCard} from "./components/UpdatingMonitoring.Card";
+import {UpdateMonitoringLayout} from "./components/UpdateMonitoring.Layout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +18,7 @@ function App() {
     <Box className="App" sx={{ backgroundColor: "#fbfbfd"}}>
       <WeeklyReportsLayout />
       <OtherFunctionsLayout />
+      <UpdateMonitoringLayout/>
     </Box>
   );
 }
