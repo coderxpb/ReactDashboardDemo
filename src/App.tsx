@@ -1,44 +1,18 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import {WeeklyReportsCard} from "./components/WeeklyReports.Card";
+import StorageIcon from '@mui/icons-material/Storage';
+import {Box} from "@mui/material";
+import {WeeklyReportsLayout} from "./components/WeeklyReports.Layout";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <Box className="App" sx={{backgroundColor: "hsl(250,10%,90%)"}}>
+      <WeeklyReportsLayout/>
+    </Box>
   )
 }
 
