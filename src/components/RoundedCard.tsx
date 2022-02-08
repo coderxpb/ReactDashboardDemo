@@ -7,13 +7,17 @@ interface PropsType {
   maxWidth?: string;
   maxHeight?: string;
   marginTop?: string;
+  backgroundColor?: string;
+  border?:string;
 }
 export const RoundedCard = (props: PropsType) => {
-  let { children, borderRadius, maxWidth, maxHeight, marginTop} = props;
+  let { children, borderRadius, maxWidth, maxHeight, marginTop, backgroundColor,border} = props;
   borderRadius = borderRadius || "15px";
+  backgroundColor= backgroundColor || 'white';
   maxWidth = maxWidth || "160px";
   maxHeight = maxHeight || "auto";
   marginTop = marginTop || "0";
+  border = border || "none";
 
   return (
     <Card
@@ -21,7 +25,9 @@ export const RoundedCard = (props: PropsType) => {
         borderRadius: borderRadius,
         width: maxWidth,
         margin: "2px",
-        height: maxHeight
+        height: maxHeight,
+        backgroundColor: backgroundColor,
+        border:border,
       }}
     >
       {children}

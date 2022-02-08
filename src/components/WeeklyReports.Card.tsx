@@ -37,12 +37,11 @@ export const WeeklyReportsCard = (props: PropsType) => {
           {title}
         </Typography>
         <Box sx={{height: "14px"}}/>
-        <RoundedCard maxWidth={"95%"} maxHeight={"40px"} >
+        <RoundedCard maxWidth={"95%"} maxHeight={"40px"} backgroundColor={color}>
           <Stack
             sx={{
               justifyContent: "center",
               height: "100%",
-              backgroundColor: color,
             }}
           >
             <Typography variant={"h6"} sx={{ color: "white", fontWeight: 600 }}>
