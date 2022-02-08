@@ -30,7 +30,7 @@ export const OtherFunctionsCard = (props: PropsType) => {
   }));
 
   return (
-    <RoundedCard maxWidth={"160px"} backgroundColor={isOn?'white':colors.lightGray} border={isOn?"1px solid transparent":border}>
+    <RoundedCard maxWidth={"180px"} backgroundColor={isOn?'white':colors.lightGray} border={isOn?"1px solid transparent":border}>
       <Stack sx={{padding: "2px", marginLeft: '2px'}}>
         <RoundedCard maxWidth={"95%"} maxHeight={"40px"} backgroundColor={isOn?color: colors.darkGray}>
           <Stack direction={"row"} sx={{height: "100%",alignItems: "center", justifyContent: "space-between" }}>

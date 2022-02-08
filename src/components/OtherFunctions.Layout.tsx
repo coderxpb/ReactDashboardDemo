@@ -14,7 +14,7 @@ export const OtherFunctionsLayout = () => {
   };
 
   return (
-    <Stack direction={"row"} sx={{ flexWrap: "wrap", width: "400px", alignItems: 'center', gap: '20px', justifyContent: 'center' }}>
+    <Stack direction={"row"} sx={{ flexWrap: "wrap", width: "460px", alignItems: 'center', gap: '30px', justifyContent: 'center' }}>
       <OtherFunctionsCard
         icon={<EqualizerRounded sx={iconStyling} />}
         title={"Optimization"}

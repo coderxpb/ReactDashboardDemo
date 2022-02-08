@@ -5,14 +5,14 @@ import {WeeklyReportsLayout} from "../components/WeeklyReports.Layout";
 import {UpdateMonitoringLayout} from "../components/UpdateMonitoring.Layout";
 import {NotificationsNoneOutlined, Settings} from "@mui/icons-material";
 import {OtherFunctionsLayout} from "../components/OtherFunctions.Layout";
-
+import macbook from "../images/macbook.png"
 export const MacPage = () => {
 
   return (
-    <Stack direction={'row'} sx={{width: '100%', gap: '200px'}}>
+    <Stack direction={'row'} sx={{width: '100%', gap: '180px'}}>
       {/*left group*/}
       <Stack>
-        <RoundedCard backgroundColor={colors.orange} maxWidth={'560px'}>
+        <RoundedCard backgroundColor={colors.orange} maxWidth={'580px'} backgroundImage={macbook} >
           <Typography variant={"h4"} sx={{fontWeight: 600, color: 'white', margin: '50px 0 0 50px'}}>Hello, Barbara!</Typography>
           <Typography variant={"body1"} sx={{color: 'rgba(255,255,255,0.8)', margin: '0 0 50px 50px'}} >Welcome back to Clean My Mac</Typography>
         </RoundedCard>
@@ -30,12 +30,12 @@ export const MacPage = () => {
 
       {/*right group*/}
       <Stack alignItems={'flex-end'} gap={'40px'}>
-        <Stack direction={'row'} sx={{alignItems: 'center', justifyContent: 'center', gap: '10px',color: colors.primary}}>
+        <Stack direction={'row'} sx={{alignItems: 'center', justifyContent: 'center', gap: '20px',color: colors.primary}}>
           <Settings />
           <NotificationsNoneOutlined />
           <Avatar variant={"square"} sx={{borderRadius: '6px'}}>B</Avatar>
         </Stack>
-        <RoundedCard backgroundColor={colors.lightGray} maxWidth={'420px'}>
+        <RoundedCard backgroundColor={colors.lightGray} maxWidth={'460px'}>
           <Stack alignItems={'center'} margin={'22px 0 16px 0'}>
             <Typography variant={'h6'} sx={{color: colors.primary, margin: '8px 0 6px 34px', alignSelf: 'flex-start'}}>Other Functions</Typography>
             <OtherFunctionsLayout/>

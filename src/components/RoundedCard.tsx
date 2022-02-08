@@ -1,6 +1,7 @@
 import { Card } from "@mui/material";
 import { ReactElement } from "react";
 import {colors} from "../colors";
+import {Image} from "@mui/icons-material";
 
 interface PropsType {
   children: ReactElement | ReactElement[] | any;
@@ -10,9 +11,11 @@ interface PropsType {
   marginTop?: string;
   backgroundColor?: string;
   border?:string;
+  backgroundImage?: any;
+  backgroundPosition?: string;
 }
 export const RoundedCard = (props: PropsType) => {
-  let { children, borderRadius, maxWidth, maxHeight, marginTop, backgroundColor,border} = props;
+  let { children, borderRadius, maxWidth, maxHeight, marginTop, backgroundColor,border, backgroundImage, backgroundPosition} = props;
   borderRadius = borderRadius || "20px";
   backgroundColor= backgroundColor || 'white';
   maxWidth = maxWidth || "160px";
@@ -23,13 +26,14 @@ export const RoundedCard = (props: PropsType) => {
   return (
     <Card
       sx={{
-        borderRadius: borderRadius,
+        borderRadius,
         width: maxWidth,
         margin: "2px",
         height: maxHeight,
-        backgroundColor: backgroundColor,
-        border: border,
-        boxShadow: `0px 0px 6px ${colors.darkGray}`
+        backgroundColor,
+        border,
+        boxShadow: `0px 0px 6px ${colors.darkGray}`,
+        backgroundImage: backgroundImage,
       }}
     >
       {children}

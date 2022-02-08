@@ -1,4 +1,4 @@
-import {Box, Container, Stack, ToggleButton, ToggleButtonGroup, Typography} from "@mui/material";
+import {Box, Button, Container, Stack, ToggleButton, ToggleButtonGroup, Typography} from "@mui/material";
 import { WeeklyReportsCard } from "./WeeklyReports.Card";
 import StorageIcon from "@mui/icons-material/Storage";
 import { MusicNoteOutlined } from "@mui/icons-material";
@@ -11,29 +11,33 @@ import Tab from "@mui/material/Tab";
 
 export const WeeklyReportsLayout = () => {
   const [selected, setSelected] = useState("none");
-  const [selectedMode, setSelectedMode] = useState<"daily" | "weekly" | "monthly">("weekly");
-  const storage = {"daily": [2.2, 1.63, 3.11, 4], "weekly": [35, 1.25, 16.35, 12.10], "monthly": [55.20, 4.42, 39, 50.40]};
+  const [selectedMode, setSelectedMode] = useState<"Daily" | "Weekly" | "Monthly">("Weekly");
+  const storage = {"Daily": [2.2, 1.63, 3.11, 4], "Weekly": [35, 1.25, 16.35, 12.10], "Monthly": [55.20, 4.42, 39, 50.40]};
 
-  const changeSelected = (e: React.MouseEvent<HTMLElement>, newValue: "string") => setSelected(newValue);
-  const changeMode = (e: React.SyntheticEvent, newValue: "daily"|"weekly"|"monthly") => setSelectedMode(newValue);
+  const changeSelected = (newValue: string) => setSelected(newValue);
+  const changeMode = (e: React.SyntheticEvent, newValue: "Daily"|"Weekly"|"Monthly") => setSelectedMode(newValue);
+
+  const buttonStyles = {border:"none", textTransform: "none",borderRadius: '25px'}
+  const tabStyles = {textTransform: 'none', fontWeight:600};
 
   return (
     <Stack>
-    <Stack direction={'row'} justifyContent={'space-between'}>
-      <Typography variant={'h6'} sx={{color: colors.primary}}>Weekly Reports</Typography>
+    <Stack direction={'row'} justifyContent={'space-between'} sx={{zIndex: '10'}}>
+      <Typography variant={'h6'} sx={{color: colors.primary}}>{selectedMode} Report</Typography>
       <Tabs
         value = {selectedMode}
+        TabIndicatorProps={{style: {backgroundColor: 'transparent', zIndex: '10'}}}
         onChange={changeMode}
-        TabIndicatorProps={{style: {backgroundColor: 'transparent'}}}
       >
-        <Tab disableRipple value={"daily"} label={"Daily"} sx={{textTransform: 'none', color: colors.primary}}/>
-        <Tab disableRipple value={"weekly"} label={"Weekly"} sx={{textTransform: 'none', color: colors.primary}}/>
-        <Tab disableRipple value={"monthly"} label={"Monthly"} sx={{textTransform: 'none', color: colors.primary}}/>
+
+        <Tab disableRipple value={"Daily"} label={"Daily"} sx={tabStyles}/>
+        <Tab disableRipple value={"Weekly"} label={"Weekly"} sx={tabStyles}/>
+        <Tab disableRipple value={"Monthly"} label={"Monthly"} sx={tabStyles}/>
       </Tabs>
     </Stack>
 
-    <ToggleButtonGroup onChange={changeSelected} sx={{marginLeft: "-10px"}}>
-      <ToggleButton disableRipple value={"system"} sx={{border:"none", textTransform: "none"}}>
+    <Stack direction={'row'} sx={{marginLeft: "-10px"}} gap={'10px'} /*onMouseLeave={()=>changeSelected('none')}*/>
+      <Button  disableRipple value={"system"} sx={buttonStyles} onMouseEnter={()=>changeSelected('system')}>
         <WeeklyReportsCard
           icon={<StorageIcon sx={{ color: "orange", marginBottom: "4px" }} />}
           icon2={<StorageIcon sx={{color: "white", marginBottom: "4px"}}/>}
@@ -43,9 +47,9 @@ export const WeeklyReportsLayout = () => {
           value={"system"}
           selected={selected}
         />
-      </ToggleButton>
+      </Button>
 
-      <ToggleButton disableRipple value={"itunes"} sx={{border:"none", textTransform: "none"}}>
+      <Button disableRipple value={"itunes"} sx={buttonStyles} onMouseEnter={()=>changeSelected('itunes')}>
         <WeeklyReportsCard
           icon={<MusicNoteOutlined sx={{ color: "red", marginBottom: "4px" }} />}
           icon2={<MusicNoteOutlined sx={{color: "white", marginBottom: "4px"}}/>}
@@ -55,9 +59,9 @@ export const WeeklyReportsLayout = () => {
           value={"itunes"}
           selected={selected}
         />
-      </ToggleButton>
+      </Button>
 
-      <ToggleButton disableRipple value={"trash"} sx={{border:"none", textTransform: "none"}}>
+      <Button disableRipple value={"trash"} sx={buttonStyles} onMouseEnter={()=>changeSelected('trash')}>
         <WeeklyReportsCard
           icon={<DeleteOutlined sx={{ color: "skyblue", marginBottom: "4px" }} />}
           icon2={<DeleteOutlined sx={{color: "white", marginBottom: "4px"}}/>}
@@ -67,9 +71,9 @@ export const WeeklyReportsLayout = () => {
           value={"trash"}
           selected={selected}
         />
-      </ToggleButton>
+      </Button>
 
-      <ToggleButton disableRipple value={"photo"} sx={{border:"none", textTransform: "none"}}>
+      <Button disableRipple value={"photo"} sx={buttonStyles} onMouseEnter={()=>changeSelected('photo')}>
         <WeeklyReportsCard
           icon={<CameraOutlined sx={{ color: "blueviolet", marginBottom: "4px" }} />}
           icon2={<CameraOutlined sx={{color: "white", marginBottom: "4px"}}/>}
@@ -79,8 +83,8 @@ export const WeeklyReportsLayout = () => {
           value={"photo"}
           selected={selected}
         />
-      </ToggleButton>
-    </ToggleButtonGroup>
+      </Button>
+    </Stack>
     </Stack>
   );
 };
