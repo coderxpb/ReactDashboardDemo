@@ -42,7 +42,7 @@ export const OtherFunctionsCard = (props: PropsType) => {
         </RoundedCard>
         <Box sx={{height: "16px"}}/>
         <Stack direction={"row"} sx={{ justifyContent: "space-between", alignItems: "center", marginBottom: "9px"}}>
-          <Typography color={isOn?colors.primary:colors.darkerGray} variant={"body2"} sx={{fontWeight: "600"}}>
+          <Typography color={isOn?colors.primary:colors.darkerGray} variant={"body2"} sx={{fontWeight: "600",marginLeft: "4px"}}>
             {title}
           </Typography>
           <CustomSwitch defaultChecked={isOn} onChange={onSwitchClicked}/>

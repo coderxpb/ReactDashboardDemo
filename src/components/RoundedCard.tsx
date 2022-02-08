@@ -12,7 +12,7 @@ interface PropsType {
 }
 export const RoundedCard = (props: PropsType) => {
   let { children, borderRadius, maxWidth, maxHeight, marginTop, backgroundColor,border} = props;
-  borderRadius = borderRadius || "15px";
+  borderRadius = borderRadius || "20px";
   backgroundColor= backgroundColor || 'white';
   maxWidth = maxWidth || "160px";
   maxHeight = maxHeight || "auto";
