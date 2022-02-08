@@ -19,6 +19,7 @@ export const WeeklyReportsCard = (props: PropsType) => {
     border: border,
     borderRadius: "7px",
     padding: "5px",
+    marginTop: "5px",
     marginBottom: "18px",
   };
 

@@ -13,7 +13,7 @@ export const WeeklyReportsLayout = () => {
   const changeSelected = (e: React.MouseEvent<HTMLElement>, newValue: "string") => setSelected(newValue);
 
   return (
-    <ToggleButtonGroup onChange={changeSelected}>
+    <ToggleButtonGroup onChange={changeSelected} sx={{marginLeft: "-10px"}}>
       <ToggleButton disableRipple value={"system"} sx={{border:"none", textTransform: "none"}}>
         <WeeklyReportsCard
           icon={<StorageIcon sx={{ color: "orange", marginBottom: "4px" }} />}

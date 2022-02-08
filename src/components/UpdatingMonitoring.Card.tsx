@@ -15,14 +15,14 @@ export const UpdatingMonitoringCard = (props: PropsType) => {
   const {title, date, progress, color, textColor, backgroundColor} = props;
 
   return (
-    <RoundedCard maxWidth={'260px'} maxHeight={'90px'} backgroundColor={backgroundColor}>
+    <RoundedCard maxWidth={'270px'} maxHeight={'100px'} backgroundColor={backgroundColor}>
       <Stack direction={'row'} sx={{height: '100%', width: '100%', justifyContent: 'space-around', alignItems: 'center'}}>
         <Stack sx={{ height: '100%', justifyContent:'center',alignItems: 'flex-start'}} spacing={1}>
-          <Typography variant={'subtitle2'} sx={{fontWeight: 600,color: textColor}}>{title}</Typography>
+          <Typography variant={'subtitle2'} sx={{fontWeight: 600, fontSize: '15px', color: textColor}}>{title}</Typography>
           <Typography variant={'caption'} sx={{fontSize: 10, color: textColor}}>{date}</Typography>
         </Stack>
         <Divider variant={'middle'} orientation={'vertical'} color={textColor} flexItem/>
-        <CircularProgress size={60} strokeWidth={4} percentage={progress} fillColor={color} textColor={textColor}/>
+        <CircularProgress size={65} strokeWidth={6} percentage={progress} fillColor={color} textColor={textColor}/>
       </Stack>
     </RoundedCard>
   )

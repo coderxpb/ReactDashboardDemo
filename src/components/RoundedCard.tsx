@@ -1,5 +1,6 @@
 import { Card } from "@mui/material";
 import { ReactElement } from "react";
+import {colors} from "../colors";
 
 interface PropsType {
   children: ReactElement | ReactElement[] | any;
@@ -17,7 +18,7 @@ export const RoundedCard = (props: PropsType) => {
   maxWidth = maxWidth || "160px";
   maxHeight = maxHeight || "auto";
   marginTop = marginTop || "0";
-  border = border || "none";
+  border = border || `2px solid ${colors.darkGray}`;
 
   return (
     <Card
@@ -27,7 +28,8 @@ export const RoundedCard = (props: PropsType) => {
         margin: "2px",
         height: maxHeight,
         backgroundColor: backgroundColor,
-        border:border,
+        border: border,
+        boxShadow: `0px 0px 6px ${colors.darkGray}`
       }}
     >
       {children}

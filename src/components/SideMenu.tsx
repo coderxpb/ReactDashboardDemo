@@ -9,9 +9,10 @@ import {
   DesktopMacOutlined,
   FolderOutlined,
   LockOutlined,
-  LogoutOutlined, MailOutlined,
+  LogoutOutlined, MailOutlined, SettingsInputComponent,
   SettingsOutlined
 } from "@mui/icons-material";
+import {MacPage} from "../pages/Mac.Page";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -27,11 +28,12 @@ function TabPanel(props: TabPanelProps) {
       role="tabpanel"
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
+      style={{width: '100%'}}
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3, height: '100%' }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -76,17 +78,18 @@ export default function SideMenu() {
           <Tab disableRipple icon={<Air sx={(value==0)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(0)} sx={(value==0)?borderStyle:{}}/>
           <Tab disableRipple icon={<DesktopMacOutlined sx={(value==1)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(1)} sx={(value==1)?borderStyle:{}}/>
           <Tab disableRipple icon={<FolderOutlined sx={(value==2)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(2)} sx={(value==2)?borderStyle:{}}/>
-          <Tab disableRipple icon={<SettingsOutlined sx={(value==3)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(3)} sx={(value==3)?borderStyle:{}}/>
+          <Tab disableRipple icon={<SettingsInputComponent sx={(value==3)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(3)} sx={(value==3)?borderStyle:{}}/>
           <Tab disableRipple icon={<LockOutlined sx={(value==4)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(4)} sx={(value==4)?borderStyle:{}}/>
           <Tab disableRipple icon={<MailOutlined sx={(value==5)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(5)} sx={(value==5)?borderStyle:{}}/>
         </Tabs>
         <Box sx={{alignSelf: 'center'}}><LogoutOutlined sx={{color: colors.darkGray}}/></Box>
       </Box>
+
       <TabPanel value={value} index={0}>
         Item One
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <MacPage/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

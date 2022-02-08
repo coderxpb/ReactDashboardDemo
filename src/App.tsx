@@ -1,5 +1,6 @@
 import SideMenu from "./components/SideMenu";
+import {Container} from "@mui/material";
 
 export const App = () => {
-  return <SideMenu/>
+  return (<Container maxWidth={'xl'}><SideMenu/></Container>)
 }

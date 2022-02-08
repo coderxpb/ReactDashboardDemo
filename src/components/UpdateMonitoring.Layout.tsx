@@ -5,7 +5,7 @@ import {colors} from "../colors";
 export const UpdateMonitoringLayout = () => {
 
   return (
-    <Stack direction={'row'}>
+    <Stack direction={'row'} sx={{justifyContent: 'space-between'}}>
       <UpdatingMonitoringCard title={"System Files"} date={"December 2019"} color={colors.red} backgroundColor={"white"} textColor={colors.primary} progress={25}/>
       <UpdatingMonitoringCard title={"Applications"} date={"December 2019"} color={colors.orange} backgroundColor={colors.primary} textColor={"white"} progress={50}/>
     </Stack>
