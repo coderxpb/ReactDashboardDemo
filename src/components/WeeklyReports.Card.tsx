@@ -7,7 +7,7 @@ interface PropsType {
   icon: any;
   icon2:any;
   title: string;
-  storage: string;
+  storage: string | number;
   color?: string;
   selected: string;
   value: string;

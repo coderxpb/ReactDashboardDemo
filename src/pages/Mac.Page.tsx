@@ -18,7 +18,6 @@ export const MacPage = () => {
         </RoundedCard>
 
         <Stack sx={{margin: '30px 0 30px 0'}}>
-          <Typography variant={'h6'} sx={{color: colors.primary}}>Weekly Reports</Typography>
           <WeeklyReportsLayout/>
         </Stack>
 
