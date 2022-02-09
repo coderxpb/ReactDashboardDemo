@@ -22,7 +22,7 @@ export const WeeklyReportsLayout = () => {
 
   return (
     <Stack>
-    <Stack direction={'row'} justifyContent={'space-between'} sx={{zIndex: '10'}}>
+    <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{zIndex: '10'}}>
       <Typography variant={'h6'} sx={{color: colors.primary}}>{selectedMode} Report</Typography>
       <Tabs
         value = {selectedMode}

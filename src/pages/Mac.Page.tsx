@@ -6,12 +6,15 @@ import {UpdateMonitoringLayout} from "../components/UpdateMonitoring.Layout";
 import {NotificationsNoneOutlined, Settings} from "@mui/icons-material";
 import {OtherFunctionsLayout} from "../components/OtherFunctions.Layout";
 import macbook from "../images/macbook.png"
+import {CalendarLayout} from "../components/Calendar.Layout";
 export const MacPage = () => {
 
   return (
     <Stack direction={'row'} sx={{width: '100%', gap: '180px'}}>
       {/*left group*/}
       <Stack>
+        <CalendarLayout />
+
         <RoundedCard backgroundColor={colors.orange} maxWidth={'580px'} backgroundImage={macbook} >
           <Typography variant={"h4"} sx={{fontWeight: 600, color: 'white', margin: '50px 0 0 50px'}}>Hello, Barbara!</Typography>
           <Typography variant={"body1"} sx={{color: 'rgba(255,255,255,0.8)', margin: '0 0 50px 50px'}} >Welcome back to Clean My Mac</Typography>

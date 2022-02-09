@@ -13,15 +13,17 @@ interface PropsType {
   border?:string;
   backgroundImage?: any;
   backgroundPosition?: string;
+  boxShadow?: string;
 }
 export const RoundedCard = (props: PropsType) => {
-  let { children, borderRadius, maxWidth, maxHeight, marginTop, backgroundColor,border, backgroundImage, backgroundPosition} = props;
+  let { children, borderRadius, maxWidth, maxHeight, marginTop, backgroundColor,border, backgroundImage, boxShadow, backgroundPosition} = props;
   borderRadius = borderRadius || "20px";
   backgroundColor= backgroundColor || 'white';
   maxWidth = maxWidth || "160px";
   maxHeight = maxHeight || "auto";
   marginTop = marginTop || "0";
   border = border || `2px solid ${colors.darkGray}`;
+  boxShadow = boxShadow || `0px 0px 6px ${colors.darkGray}`;
 
   return (
     <Card
@@ -32,7 +34,7 @@ export const RoundedCard = (props: PropsType) => {
         height: maxHeight,
         backgroundColor,
         border,
-        boxShadow: `0px 0px 6px ${colors.darkGray}`,
+        boxShadow,
         backgroundImage: backgroundImage,
       }}
     >
