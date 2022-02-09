@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import {Stack, useMediaQuery} from "@mui/material";
 import { colors } from "../colors";
 import {CheckCircleOutline, EqualizerRounded, Sensors, SyncOutlined} from "@mui/icons-material";
 import { OtherFunctionsCard } from "./OtherFunctions.Card";
