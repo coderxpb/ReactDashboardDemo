@@ -19,19 +19,20 @@ export const CalendarLayout = () => {
     case "r": return colors.red;
     case "g": return colors.blue;
     case "o": return colors.orange;
+    default: return 'white';
   }}
 
   return (
-    <Stack>
-      <Stack direction={'row'} justifyContent={''}>
-        <Typography variant={'h6'} sx={{color: colors.primary, width: '180px'}}>December {datesData[currentRange][0]}-{datesData[currentRange][6]}</Typography>
-        <ButtonGroup sx={{backgroundColor: colors.red, borderRadius: '25px',}}>
+    <Stack margin={'48px 0 24px 0'}>
+      <Stack direction={'row'} marginBottom={'24px'}>
+        <Typography variant={'h6'} sx={{color: colors.primary}}>December {datesData[currentRange][0]}-{datesData[currentRange][6]}</Typography>
+        <ButtonGroup sx={{backgroundColor: colors.red, borderRadius: '25px', height: '32px', marginLeft: '18px', padding: 'none'}}>
           <Button disableRipple onClick={onLeftArrow} endIcon={<ArrowBackIos sx={{color: 'white', height: '17px'}}/>} sx={{border: 'none !important', width: '8px'}}/>
           <Button disableRipple onClick={onRightArrow} startIcon={<ArrowBackIos sx={{transform: 'rotate(180deg)', color: 'white', height: '17px'}}/>} sx={{border: 'none !important', width: '8px'}}/>
         </ButtonGroup>
       </Stack>
       <Divider/>
-      <Stack direction={'row'} flex={'100%'} width={'100%'} justifyContent={'space-around'}>
+      <Stack margin={'10px 0 10px 0'} direction={'row'} flex={'100%'} width={'100%'} justifyContent={'space-around'}>
         <CalendarCard day={'Mon'} date={datesData[currentRange][0]} color={colorMapper(colorData[currentRange][0])}/>
         <CalendarCard day={'Tue'} date={datesData[currentRange][1]} color={colorMapper(colorData[currentRange][1])}/>
         <CalendarCard day={'Wed'} date={datesData[currentRange][2]} color={colorMapper(colorData[currentRange][2])}/>
