@@ -13,6 +13,7 @@ import {
   SettingsOutlined
 } from "@mui/icons-material";
 import {MacPage} from "../pages/Mac.Page";
+import {useMediaQuery} from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -50,9 +51,34 @@ function a11yProps(index: number) {
 
 export default function SideMenu() {
   const [value, setValue] = React.useState(1);
+  const desktopSize = useMediaQuery('(min-width: 1536px)');
+  const tabletSize = useMediaQuery('(min-width:900px)');
 
-  const borderStyle = {textTransform: 'none', backgroundColor: 'white', borderRadius: '25px 0 0 25px'};
-  const iconStyle = {color: colors.primary, marginTop: '2px',marginBottom: '2px', marginLeft: '-30px'};
+
+  const borderStyle = desktopSize?{textTransform: 'none', backgroundColor: 'white', borderRadius: '25px 0 0 25px'}:
+    {textTransform: 'none', backgroundColor: 'white', borderRadius: '0 0 0 0'};
+
+  const iconStyle = desktopSize?{color: colors.primary, marginTop: '2px',marginBottom: '2px', marginLeft: '-30px'}:
+    {color: colors.primary, margin:'0'};
+
+  const menuContainerStyle = desktopSize? {
+      zIndex: '10',
+      backgroundColor: colors.primary,
+      display: 'flex', flexDirection: 'column',
+      borderRadius: '25px',
+      margin: '10px 16px 10px 10px',
+      maxWidth: '120px',
+      justifyContent:'space-around'}:
+      {position: 'fixed', bottom: '0',
+        maxWidth: '620px',
+        left: 0,
+        right: 0,
+        margin: '10px auto',
+      flexDirection: 'row', zIndex: '10',
+        backgroundColor: colors.primary,
+        borderRadius: '25px',
+        alignItems: 'flex-start',
+      justifyContent:'center'};
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -62,18 +88,16 @@ export default function SideMenu() {
     <Box
       sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: '100vh', backgroundColor: 'white', }}
     >
-      <Box sx={{backgroundColor: colors.primary, display: 'flex', flexDirection: 'column', borderRadius: '25px', margin: '10px 16px 10px 10px', maxWidth: '120px', justifyContent:'space-around'}}>
-        <Box sx={{alignSelf: 'center', color: 'white', fontSize: '20px'}}>Cl<strong>Mac</strong></Box>
+      <Box sx={menuContainerStyle}>
+        <Box sx={{alignSelf: `${desktopSize?'center': 'flex-start'}`, display:`${desktopSize?'': 'none'}`, color: 'white', fontSize: `${desktopSize?'20px': '0px'}`}}>Cl<strong>Mac</strong></Box>
         <Tabs
-          orientation="vertical"
+          orientation={desktopSize?"vertical":"horizontal"}
           variant="scrollable"
-          centered={true}
           TabIndicatorProps={{style: {backgroundColor: 'transparent'}}}
           value={value}
-
           onChange={handleChange}
           aria-label="Vertical tabs example"
-          sx={{ borderRight: 0, backgroundColor: 'transparent', marginLeft: '30px' }}
+          sx={desktopSize?{ borderRight: 0, marginLeft: '30px' }:{marginLeft: '30px'}}
         >
           <Tab disableRipple icon={<Air sx={(value==0)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(0)} sx={(value==0)?borderStyle:{}}/>
           <Tab disableRipple icon={<DesktopMacOutlined sx={(value==1)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(1)} sx={(value==1)?borderStyle:{}}/>
@@ -82,7 +106,7 @@ export default function SideMenu() {
           <Tab disableRipple icon={<LockOutlined sx={(value==4)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(4)} sx={(value==4)?borderStyle:{}}/>
           <Tab disableRipple icon={<MailOutlined sx={(value==5)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(5)} sx={(value==5)?borderStyle:{}}/>
         </Tabs>
-        <Box sx={{alignSelf: 'center'}}><LogoutOutlined sx={{color: colors.darkGray}}/></Box>
+        <Box sx={desktopSize?{alignSelf: 'center'}:{display:'none'}}><LogoutOutlined sx={{color: colors.darkGray}}/></Box>
       </Box>
 
       <TabPanel value={value} index={0}>
