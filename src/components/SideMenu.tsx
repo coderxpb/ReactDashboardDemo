@@ -51,8 +51,6 @@ function a11yProps(index: number) {
 export default function SideMenu() {
   const [value, setValue] = React.useState(1);
   const desktopSize = useMediaQuery('(min-width: 1536px)');
-  const tabletSize = useMediaQuery('(min-width:900px)');
-
 
   const borderStyle = desktopSize?{textTransform: 'none', backgroundColor: 'white', borderRadius: '25px 0 0 25px'}:
     {textTransform: 'none', backgroundColor: 'white', borderRadius: '0 0 0 0'};
@@ -67,16 +65,17 @@ export default function SideMenu() {
       borderRadius: '25px',
       margin: '10px 16px 10px 10px',
       maxWidth: '120px',
-      justifyContent:'space-around'}:
-      {position: 'fixed', bottom: '0',
-        maxWidth: '620px',
-        left: 0,
-        right: 0,
-        margin: '10px auto',
+      justifyContent:'space-around'}
+    : {
+      position: 'fixed', bottom: '0',
+      maxWidth: '620px',
+      left: 0,
+      right: 0,
+      margin: '10px auto',
       flexDirection: 'row', zIndex: '10',
-        backgroundColor: colors.primary,
-        borderRadius: '25px',
-        alignItems: 'flex-start',
+      backgroundColor: colors.primary,
+      borderRadius: '25px',
+      alignItems: 'flex-start',
       justifyContent:'center'};
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -98,7 +97,7 @@ export default function SideMenu() {
           aria-label="Vertical tabs example"
           sx={desktopSize?{ borderRight: 0, marginLeft: '30px' }:{marginLeft: '30px'}}
         >
-          <Tab disableRipple icon={<Air sx={(value==0)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(0)} sx={(value==0)?borderStyle:{}}/>
+          <Tab disableRipple icon={<Air sx={(value==0)?iconStyle:{...iconStyle, color: 'white'}}/>}{...a11yProps(0)} sx={(value==0)?borderStyle:{}}/>
           <Tab disableRipple icon={<DesktopMacOutlined sx={(value==1)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(1)} sx={(value==1)?borderStyle:{}}/>
           <Tab disableRipple icon={<FolderOutlined sx={(value==2)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(2)} sx={(value==2)?borderStyle:{}}/>
           <Tab disableRipple icon={<SettingsInputComponent sx={(value==3)?iconStyle:{...iconStyle, color: 'white'}}/>} {...a11yProps(3)} sx={(value==3)?borderStyle:{}}/>

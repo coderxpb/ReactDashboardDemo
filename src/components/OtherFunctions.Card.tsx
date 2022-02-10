@@ -15,7 +15,6 @@ export const OtherFunctionsCard = (props: PropsType) => {
   const [isOn, setIsOn] = useState<boolean>(true);
 
   const desktopSize = useMediaQuery('(min-width: 1536px)');
-  const tabletSize = useMediaQuery('(min-width: 900px)');
 
   const onSwitchClicked = (e: ChangeEvent<HTMLInputElement>, checked: boolean) => setIsOn(checked);
   const border = "1px solid " + colors.darkGray;

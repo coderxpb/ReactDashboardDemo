@@ -11,12 +11,11 @@ interface PropsType {
   backgroundColor?: string;
   border?:string;
   backgroundImage?: any;
-  backgroundPosition?: string;
   boxShadow?: string;
   display?: string;
 }
 export const RoundedCard = (props: PropsType) => {
-  let { children, borderRadius, maxWidth, maxHeight, margin, backgroundColor,border, backgroundImage, boxShadow, display,backgroundPosition} = props;
+  let { children, borderRadius, maxWidth, maxHeight, margin, backgroundColor,border, backgroundImage, boxShadow, display} = props;
   borderRadius = borderRadius || "20px";
   backgroundColor= backgroundColor || 'white';
   maxWidth = maxWidth || "160px";

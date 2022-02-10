@@ -21,13 +21,16 @@ export const CalendarLayout = () => {
     default: return 'white';
   }}
 
+  const buttonStyle = {border: 'none !important', width: '8px'};
+  const commonIconStyle = {color: 'white', height: '17px'}
+
   return (
     <Stack>
       <Stack direction={'row'} marginBottom={'24px'}>
         <Typography variant={'h6'} sx={{color: colors.primary}}>December {datesData[currentRange][0]}-{datesData[currentRange][6]}</Typography>
         <ButtonGroup sx={{backgroundColor: colors.red, borderRadius: '25px', height: '32px', marginLeft: '18px', padding: 'none'}}>
-          <Button disableRipple onClick={onLeftArrow} endIcon={<ArrowBackIos sx={{color: 'white', height: '17px'}}/>} sx={{border: 'none !important', width: '8px'}}/>
-          <Button disableRipple onClick={onRightArrow} startIcon={<ArrowBackIos sx={{transform: 'rotate(180deg)', color: 'white', height: '17px'}}/>} sx={{border: 'none !important', width: '8px'}}/>
+          <Button disableRipple onClick={onLeftArrow} endIcon={<ArrowBackIos sx={commonIconStyle}/>} sx={buttonStyle}/>
+          <Button disableRipple onClick={onRightArrow} startIcon={<ArrowBackIos sx={{transform: 'rotate(180deg)', ...commonIconStyle}}/>} sx={{buttonStyle}}/>
         </ButtonGroup>
       </Stack>
       <Divider/>
