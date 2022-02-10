@@ -21,7 +21,7 @@ export const WeeklyReportsLayout = () => {
   const [selected, setSelected] = useState("none");
   type ModesType = "Daily" | "Weekly" | "Monthly";
   const [selectedMode, setSelectedMode] = useState<ModesType>("Weekly");
-  const storage = {"Daily": [2.2, 1.63, 3.11, 4], "Weekly": [35, 1.25, 16.35, 12.10], "Monthly": [55.20, 4.42, 39, 50.40]};
+  const storage = {"Daily": [2.2, 1.63, 3.11, 4], "Weekly": [35, 2.25, 16.35, 12.10], "Monthly": [55.20, 4.42, 39, 50.40]};
 
   const changeSelected = (newValue: string) => setSelected(newValue);
   const changeMode = (e: React.SyntheticEvent, newValue: ModesType) => setSelectedMode(newValue);
