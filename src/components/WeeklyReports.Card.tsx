@@ -1,5 +1,5 @@
 import { RoundedCard } from "./RoundedCard";
-import { Box, Icon, Stack, Typography } from "@mui/material";
+import {Box, Icon, Stack, Typography, useMediaQuery} from "@mui/material";
 import { colors } from "../colors";
 import { useState } from "react";
 
@@ -15,25 +15,27 @@ interface PropsType {
 export const WeeklyReportsCard = (props: PropsType) => {
   const { icon, title, storage, color, value, selected, icon2 } = props;
   const border = color ? "1px solid " + color : "none";
+
+  const desktopSize = useMediaQuery('(min-width: 1536px)');
+  const tabletSize = useMediaQuery('(min-width: 900px)');
+
   const iconStyle = {
     border: border,
     borderRadius: "7px",
     padding: "5px",
-    marginTop: "5px",
-    marginBottom: "18px",
+    marginTop: `${tabletSize?'5px':'10px'}`,
+    marginBottom: `${tabletSize?'18px':'28px'}`,
+    fontSize: `${tabletSize?'':'40px'}`
   };
 
   return selected == value ? (
-    <RoundedCard maxWidth={"120px"}>
-      <Stack
-        sx={{ alignItems: "center", marginTop: "14px", marginBottom: "-1px" }}
-      >
+    <RoundedCard maxWidth={tabletSize?"120px":"200px"}>
+      <Stack sx={{ alignItems: "center", marginTop: `${tabletSize?'14px':'28px'}`, marginBottom: `${tabletSize?'14px':'28px'}` }}>
         <Icon sx={{...iconStyle, backgroundColor: color}}>{icon2}</Icon>
-
 
         <Typography
           variant={"body2"}
-          sx={{ fontSize: "12px", color: colors.primary }}
+          sx={{ fontSize: `${tabletSize?'12px':'20px'}`, color: colors.primary }}
         >
           {title}
         </Typography>
@@ -45,7 +47,7 @@ export const WeeklyReportsCard = (props: PropsType) => {
               height: "100%",
             }}
           >
-            <Typography variant={"h6"} sx={{ color: "white", fontWeight: 600 }}>
+            <Typography variant={"h6"} sx={{ color: "white", fontWeight: 600, fontSize: `${tabletSize?'':'26px'}` }}>
               {storage} Gb
             </Typography>
           </Stack>
@@ -54,21 +56,19 @@ export const WeeklyReportsCard = (props: PropsType) => {
       </Stack>
     </RoundedCard>
   ) : (
-    <RoundedCard maxWidth={"120px"}>
-      <Stack
-        sx={{ alignItems: "center", marginTop: "14px", marginBottom: "14px" }}
-      >
+    <RoundedCard maxWidth={tabletSize?"120px":"200px"}>
+      <Stack sx={{ alignItems: "center", marginTop: `${tabletSize?'14px':'28px'}`, marginBottom: `${tabletSize?'14px':'28px'}`}}>
         <Icon sx={iconStyle}>{icon}</Icon>
         <Typography
           variant={"body2"}
-          sx={{ fontSize: "12px", color: colors.primary }}
+          sx={{fontSize: `${tabletSize?'12px':'20px'}`, color: colors.primary }}
         >
           {title}
         </Typography>
 
         <Typography
           variant={"h6"}
-          sx={{ color: colors.primary, fontWeight: 600, margin: "-3px" }}
+          sx={{ color: colors.primary, fontWeight: 600, margin: "-3px", fontSize: `${tabletSize?'':'26px'}` }}
         >
           {storage} Gb
         </Typography>

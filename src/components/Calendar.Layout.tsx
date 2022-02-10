@@ -5,7 +5,6 @@ import {useState} from "react";
 import {ArrowBackIos} from "@mui/icons-material";
 
 const datesData = [[2,3,4,5,6,7,8],[9,10,11,12,13,14,15],[16,17,18,19,20,21,22]]
-const dayData = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri','Sat','Sun']
 const colorData = [['r','g','o','o','g','o','r'],['r','r','o','r','g','o','r'],['o','g','g','o','g','o','g']]
 
 export const CalendarLayout = () => {
@@ -23,7 +22,7 @@ export const CalendarLayout = () => {
   }}
 
   return (
-    <Stack margin={'48px 0 24px 0'}>
+    <Stack>
       <Stack direction={'row'} marginBottom={'24px'}>
         <Typography variant={'h6'} sx={{color: colors.primary}}>December {datesData[currentRange][0]}-{datesData[currentRange][6]}</Typography>
         <ButtonGroup sx={{backgroundColor: colors.red, borderRadius: '25px', height: '32px', marginLeft: '18px', padding: 'none'}}>

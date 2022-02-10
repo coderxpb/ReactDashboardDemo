@@ -10,7 +10,6 @@ import {
   FolderOutlined,
   LockOutlined,
   LogoutOutlined, MailOutlined, SettingsInputComponent,
-  SettingsOutlined
 } from "@mui/icons-material";
 import {MacPage} from "../pages/Mac.Page";
 import {useMediaQuery} from "@mui/material";

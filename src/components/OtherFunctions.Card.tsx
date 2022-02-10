@@ -1,5 +1,5 @@
 import { RoundedCard } from "./RoundedCard";
-import {alpha, Box, Stack, styled, Switch, Typography, useMediaQuery} from "@mui/material";
+import {alpha, Box, Stack, styled, Switch, Typography} from "@mui/material";
 import { MoreVert } from "@mui/icons-material";
 import { colors } from "../colors";
 import {ChangeEvent, useState} from "react";
