@@ -1,21 +1,34 @@
-import {Box, Button, Container, Stack, ToggleButton, ToggleButtonGroup, Typography, useMediaQuery} from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  FormControl, InputLabel, MenuItem, Select, SelectChangeEvent,
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+  useMediaQuery
+} from "@mui/material";
 import { WeeklyReportsCard } from "./WeeklyReports.Card";
 import StorageIcon from "@mui/icons-material/Storage";
 import { MusicNoteOutlined } from "@mui/icons-material";
 import { DeleteOutlined } from "@mui/icons-material";
 import { CameraOutlined } from "@mui/icons-material";
 import {useState} from "react";
-import {colors} from "../colors";
+import {colors} from "../themes/colors";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 export const WeeklyReportsLayout = () => {
   const [selected, setSelected] = useState("none");
-  const [selectedMode, setSelectedMode] = useState<"Daily" | "Weekly" | "Monthly">("Weekly");
+  type ModesType = "Daily" | "Weekly" | "Monthly";
+  const [selectedMode, setSelectedMode] = useState<ModesType>("Weekly");
   const storage = {"Daily": [2.2, 1.63, 3.11, 4], "Weekly": [35, 1.25, 16.35, 12.10], "Monthly": [55.20, 4.42, 39, 50.40]};
 
   const changeSelected = (newValue: string) => setSelected(newValue);
-  const changeMode = (e: React.SyntheticEvent, newValue: "Daily"|"Weekly"|"Monthly") => setSelectedMode(newValue);
+  const changeMode = (e: React.SyntheticEvent, newValue: ModesType) => setSelectedMode(newValue);
+  const changeSelect = (e: SelectChangeEvent) => setSelectedMode(e.target.value as ModesType);
+
 
   const desktopSize = useMediaQuery('(min-width: 1536px)');
   const tabletSize = useMediaQuery('(min-width: 900px)');
@@ -27,18 +40,33 @@ export const WeeklyReportsLayout = () => {
 
   return (
     <Stack>
-    <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{zIndex: '10'}}>
+    <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{zIndex: '10', marginBottom: '10px'}}>
       <Typography variant={'h6'} sx={{color: colors.primary}}>{selectedMode} Report</Typography>
       <Tabs
         value = {selectedMode}
         TabIndicatorProps={{style: {backgroundColor: 'transparent', zIndex: '10'}}}
         onChange={changeMode}
+        sx={{display:`${tabletSize?'':'none'}`}}
       >
 
         <Tab disableRipple value={"Daily"} label={"Daily"} sx={tabStyles}/>
         <Tab disableRipple value={"Weekly"} label={"Weekly"} sx={tabStyles}/>
         <Tab disableRipple value={"Monthly"} label={"Monthly"} sx={tabStyles}/>
       </Tabs>
+
+      <FormControl size={'small'} sx={{display:`${tabletSize?'none':'block'}`}}>
+        <Select
+          value={selectedMode}
+          onChange={changeSelect}
+          autoWidth
+          sx={{ padding: 'none'}}
+        >
+          <MenuItem value={"Daily"}>Daily</MenuItem>
+          <MenuItem value={"Weekly"}>Weekly</MenuItem>
+          <MenuItem value={"Monthly"}>Monthly</MenuItem>
+        </Select>
+      </FormControl>
+
     </Stack>
 
     <Stack direction={'row'} justifyContent={tabletSize?'flex-start':'center'} sx={{marginLeft: "-10px", flexWrap: 'wrap'}} gap={'10px'} /*onMouseLeave={()=>changeSelected('none')}*/>

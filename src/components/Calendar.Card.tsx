@@ -1,7 +1,7 @@
 import {RoundedCard} from "./RoundedCard";
 import {Stack, Typography} from "@mui/material";
 import {FiberManualRecord} from "@mui/icons-material";
-import {colors} from "../colors";
+import {colors} from "../themes/colors";
 import {useState} from "react";
 
 interface PropsType{

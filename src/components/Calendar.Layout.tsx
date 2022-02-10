@@ -1,6 +1,6 @@
 import {Button, ButtonGroup, Divider, Stack, Typography} from "@mui/material";
 import {CalendarCard} from "./Calendar.Card";
-import {colors} from "../colors";
+import {colors} from "../themes/colors";
 import {useState} from "react";
 import {ArrowBackIos} from "@mui/icons-material";
 

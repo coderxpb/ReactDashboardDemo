@@ -1,6 +1,6 @@
 import {Avatar, Badge, Stack, Typography, useMediaQuery} from "@mui/material";
 import {RoundedCard} from "../components/RoundedCard";
-import {colors} from "../colors";
+import {colors} from "../themes/colors";
 import {WeeklyReportsLayout} from "../components/WeeklyReports.Layout";
 import {UpdateMonitoringLayout} from "../components/UpdateMonitoring.Layout";
 import {NotificationsNoneOutlined, Settings} from "@mui/icons-material";

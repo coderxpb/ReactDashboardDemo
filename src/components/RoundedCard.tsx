@@ -1,6 +1,6 @@
 import { Card } from "@mui/material";
 import { ReactElement } from "react";
-import {colors} from "../colors";
+import {colors} from "../themes/colors";
 
 interface PropsType {
   children: ReactElement | ReactElement[] | any;

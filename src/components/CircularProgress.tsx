@@ -1,6 +1,6 @@
 //circular progress from https://medium.com/tinyso/how-to-create-an-animated-svg-circular-progress-component-in-react-5123c7d24391
 import React, { useEffect, useState } from "react";
-import {colors} from "../colors";
+import {colors} from "../themes/colors";
 
 const CircularProgress = ({ size, strokeWidth, percentage, fillColor, textColor }) => {
   const [progress, setProgress] = useState(0);

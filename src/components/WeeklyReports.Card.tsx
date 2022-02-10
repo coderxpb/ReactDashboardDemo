@@ -1,6 +1,6 @@
 import { RoundedCard } from "./RoundedCard";
 import {Box, Icon, Stack, Typography, useMediaQuery} from "@mui/material";
-import { colors } from "../colors";
+import { colors } from "../themes/colors";
 import { useState } from "react";
 
 interface PropsType {

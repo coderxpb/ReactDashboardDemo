@@ -1,9 +1,11 @@
 import {Stack, useMediaQuery} from "@mui/material";
-import { colors } from "../colors";
+import { colors } from "../themes/colors";
 import {CheckCircleOutline, EqualizerRounded, Sensors, SyncOutlined} from "@mui/icons-material";
 import { OtherFunctionsCard } from "./OtherFunctions.Card";
 
 export const OtherFunctionsLayout = () => {
+  const desktopSize = useMediaQuery('(min-width: 1536px)');
+
   const iconStyling = {
     color: "white",
     backgroundColor: "rgba(255,255,255,0.3)",
@@ -11,10 +13,11 @@ export const OtherFunctionsLayout = () => {
     padding: "4px",
     borderRadius: "9px",
     marginLeft: "6px",
+    fontSize: `${desktopSize?'': '34px'}`
   };
 
   return (
-    <Stack direction={"row"} sx={{ flexWrap: "wrap", width: "460px", alignItems: 'center', gap: '30px', justifyContent: 'center' }}>
+    <Stack direction={"row"} sx={{ flexWrap: "wrap", width: "100%", margin: '12px 0 12px 0', alignItems: 'center', gap: `${desktopSize?'30px':'50px'}`, justifyContent: 'center' }}>
       <OtherFunctionsCard
         icon={<EqualizerRounded sx={iconStyling} />}
         title={"Optimization"}
